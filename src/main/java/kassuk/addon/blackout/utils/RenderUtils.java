@@ -3,6 +3,7 @@ package kassuk.addon.blackout.utils;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.*;
+import net.minecraft.client.util.BufferAllocator;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.ColorHelper;
 import org.joml.Matrix4f;
@@ -14,7 +15,7 @@ import static meteordevelopment.meteorclient.MeteorClient.mc;
  */
 
 public class RenderUtils {
-    private static final VertexConsumerProvider.Immediate vertex = VertexConsumerProvider.immediate(new BufferAllocater(2048));
+    private static final VertexConsumerProvider.Immediate vertex = VertexConsumerProvider.immediate(new BufferAllocator(2048));
 
     public static void rounded(MatrixStack stack, float x, float y, float w, float h, float radius, int p, int color) {
 
@@ -29,7 +30,6 @@ public class RenderUtils {
         RenderSystem.setShader(GameRenderer::getPositionColorProgram);
 
         BufferBuilder bufferBuilder = Tessellator.getInstance().begin(VertexFormat.DrawMode.TRIANGLE_FAN, VertexFormats.POSITION_COLOR);
-
 
         corner(x + w, y, radius, 360, p, r, g, b, a, bufferBuilder, matrix4f);
         corner(x, y, radius, 270, p, r, g, b, a, bufferBuilder, matrix4f);
@@ -63,7 +63,6 @@ public class RenderUtils {
         RenderSystem.setShader(GameRenderer::getPositionColorProgram);
 
         BufferBuilder bufferBuilder = Tessellator.getInstance().begin(VertexFormat.DrawMode.TRIANGLE_FAN, VertexFormats.POSITION_COLOR);
-
 
         bufferBuilder.vertex(matrix4f, x + w, y, 0).color(r, g, b, a);
         bufferBuilder.vertex(matrix4f, x, y, 0).color(r, g, b, a);
