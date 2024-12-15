@@ -7,7 +7,7 @@ An addon for Meteor client that adds a variety of new/improved features to the M
 such as a new and improved CrystalAura, BedAura and PacketFly and a lot more of new things to push you above the competition.
 
 ### Development
-The development of the addon might not be super active due to us having our own lives contrary to the popular belief.
+There is eror on the combat modules we are gonna fix it soon
 
 ### How to use Blackout:
  - Install Fabric 1.21.1
